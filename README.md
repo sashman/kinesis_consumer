@@ -1,21 +1,20 @@
 # KinesisConsumer
 
-**TODO: Add description**
+Standard out elixir kinesis consumer.
 
-## Installation
+## Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `kinesis_consumer` to your list of dependencies in `mix.exs`:
+When started give the task some time to resolve the lease:
 
-```elixir
-def deps do
-  [
-    {:kinesis_consumer, "~> 0.1.0"}
-  ]
-end
+```
+STREAM_NAME=diseases mix start
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/kinesis_consumer](https://hexdocs.pm/kinesis_consumer).
+## Params
 
+- `APP_NAME` - Application name to register as a lease against.
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_REGION`
+- `KINESIS_HOST`
+- `DYNAMO_DB_HOST`
