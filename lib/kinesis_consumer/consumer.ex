@@ -9,14 +9,14 @@ defmodule KinesisConsumer.Consumer do
 
   defp process_data(raw_data) do
     with {:ok, decoded_data} <- Base.decode64(raw_data),
-         {:ok, decoded_json} <- Jason.decode(decoded_data) do
-      IO.inspect(decoded_json)
+         {:ok, _decoded_json} <- Jason.decode(decoded_data) do
+      IO.puts(decoded_data)
     else
       error -> Logger.error(error |> inspect())
     end
   end
 
-  def handle_failed(messages, context) do
+  def handle_failed(messages, _context) do
     messages
     |> inspect()
     |> Logger.error()
